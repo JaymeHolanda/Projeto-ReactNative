@@ -1,21 +1,15 @@
-// Importações necessárias do React, React Native e Context API
+
 import React, { useContext } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import CartoesEstudoContext from '../contexts/CartoesEstudoContext'; // Contexto dos cartões
-import { MaterialIcons } from 'react-native-vector-icons'; // Biblioteca de ícones
+import CartoesEstudoContext from '../contexts/CartoesEstudoContext';
+import { MaterialIcons } from 'react-native-vector-icons'; 
 
-/**
- * Tela principal para exibição dos cartões de estudo.
- * - Lista cartões organizados por status: backlog, em progresso, concluídos.
- * - Permite adicionar, editar e excluir cartões.
- */
+
 const ListaCartaoScreen = ({ navigation }) => {
-    // Obtém os dados e métodos do contexto de cartões
+    
     const { cartoes, excluirCartao } = useContext(CartoesEstudoContext);
 
-    /**
-     * Confirmação antes de excluir um cartão.
-     */
+  
     const confirmarExclusao = (id) => {
         Alert.alert("Excluir Cartão", "Tem certeza que deseja excluir este cartão?", [
             { text: "Cancelar", style: "cancel" },
@@ -23,12 +17,9 @@ const ListaCartaoScreen = ({ navigation }) => {
         ]);
     };
 
-    /**
-     * Renderiza um cartão individual.
-     * - Aplica cores diferentes com base no status do cartão.
-     */
+    
     const renderizarCartao = ({ item }) => {
-        // Define estilos baseados no status do cartão
+        
         let cardStyle = styles.card;
         if (item.status === 'backlog') {
             cardStyle = { ...styles.card, ...styles.cardBacklog };
@@ -57,14 +48,10 @@ const ListaCartaoScreen = ({ navigation }) => {
         );
     };
 
-    /**
-     * Filtra os cartões de estudo por status.
-     */
+  
     const cartoesAgrupadosPorStatus = (status) => cartoes.filter(cartao => cartao.status === status);
 
-    /**
-     * Filtra cartões que estão próximos ao vencimento (dentro de 15 dias).
-     */
+   
     const cartoesVencimentoProximo = cartoes.filter(cartao => {
         const dataTermino = new Date(cartao.dataTermino);
         const diferencaDias = (dataTermino - new Date()) / (1000 * 60 * 60 * 24);
@@ -121,7 +108,7 @@ const ListaCartaoScreen = ({ navigation }) => {
     );
 };
 
-// Estilização da tela
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -158,14 +145,14 @@ const styles = StyleSheet.create({
         maxWidth: 170,
     },
     cardBacklog: {
-        backgroundColor: '#f5f5f5', // Cinza claro para backlog
+        backgroundColor: '#f5f5f5', 
         borderColor: '#ddd',
     },
     cardDone: {
-        borderColor: '#32cd32', // Verde para concluído
+        borderColor: '#32cd32', 
     },
     cardInProgress: {
-        borderColor: '#007bff', // Azul para em progresso
+        borderColor: '#007bff', 
     },
     cardTitle: {
         fontSize: 14,

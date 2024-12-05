@@ -1,32 +1,21 @@
-// Importações necessárias do React e React Native
 import React, { useContext } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import CartoesEstudoContext from '../contexts/CartoesEstudoContext'; // Contexto dos cartões
+import CartoesEstudoContext from '../contexts/CartoesEstudoContext'; 
 
-/**
- * Tela para exibir as tarefas próximas do vencimento (dentro de 15 dias).
- * - Filtra e exibe apenas os cartões cuja data de término está próxima.
- */
+
 const TarefasVencimentoProximoScreen = () => {
-    // Obtém os dados do contexto de cartões
+    
     const { cartoes } = useContext(CartoesEstudoContext);
 
-    // Data atual
     const hoje = new Date();
 
-    /**
-     * Filtra os cartões cuja data de término está dentro dos próximos 15 dias.
-     */
     const cartoesVencimentoProximo = cartoes.filter(cartao => {
         const dataTermino = new Date(cartao.dataTermino);
         const diferencaDias = (dataTermino - hoje) / (1000 * 60 * 60 * 24); // Calcula a diferença em dias
         return diferencaDias >= 0 && diferencaDias <= 15; // Inclui cartões que vencem nos próximos 15 dias
     });
 
-    /**
-     * Renderiza os cartões da lista.
-     * - Exibe título, status e data de término formatada.
-     */
+ 
     const renderizarCartao = ({ item }) => (
         <View style={styles.card}>
             <Text style={styles.cardTitle}>{item.titulo}</Text>
@@ -49,7 +38,7 @@ const TarefasVencimentoProximoScreen = () => {
     );
 };
 
-// Estilização da tela
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

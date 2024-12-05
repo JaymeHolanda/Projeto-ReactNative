@@ -4,19 +4,11 @@ import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image } fro
 import { signInWithEmailAndPassword } from 'firebase/auth'; // Firebase para login com email/senha
 import { auth } from '../config/firebaseConfig'; // Configuração do Firebase
 
-/**
- * Tela de Login
- * - Permite que o usuário insira email e senha para autenticar.
- * - Redireciona o usuário para a tela principal após login bem-sucedido.
- */
+
 const LoginScreen = ({ navigation }) => {
-    // Estados para capturar email e senha
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    /**
-     * Realiza o login usando o Firebase Authentication.
-     */
     const handleLogin = async () => {
         try {
             await signInWithEmailAndPassword(auth, email, password); // Tenta realizar login com o Firebase
@@ -65,7 +57,6 @@ const LoginScreen = ({ navigation }) => {
     );
 };
 
-// Estilização da tela
 const styles = StyleSheet.create({
     container: {
         flex: 1,
