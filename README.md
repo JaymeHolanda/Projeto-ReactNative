@@ -59,11 +59,11 @@ FIREBASE_APP_ID=`
 
 # Autenticação
 
-O app utiliza Firebase Authentication para gerenciamento de usuários. Os usuários podem:
+O app utiliza Firebase Authentication para o gerenciamento de usuários. Com essa funcionalidade, os usuários podem:
 
-- Registrar com email/senha
-- Fazer login com credenciais existentes
-- Fazer logout da aplicação
+- Registrar-se utilizando email e senha.
+- Entrar na aplicação com suas credenciais existentes.
+- Sair da conta a qualquer momento, garantindo o controle sobre a sessão.
 
 # Modelo de Dados
 
@@ -76,14 +76,14 @@ Os cartões de estudo contêm as seguintes informações:
 - ID do usuário (para a identificação dos cartões por usuário)
 - Os dados são armazenados no Firebase Firestore com atualizações em tempo real.
 
-# Funcionalidades do Sistema
+# 🚀 Funcionalidades do Sistema
 
-- Autenticação de usuários (login/registro)
-- Gerenciamento de cartões de estudo (operações CRUD)
-- Status dos cartões 
-- Acompanhamento de datas de vencimento
-- Filtragem de tarefas por status
-- Visualização de tarefas próximas (próximos 15 dias)
+- **Autenticação de usuários:** Permite registro, login e controle de sessão.
+- **Gerenciamento de cartões de estudo:** Suporta operações CRUD (criação, leitura, atualização e exclusão) dos cartões.
+- **Status dos cartões:** Acompanhe o progresso e a conclusão dos cartões de estudo.
+- Acompanhamento de datas de vencimento: Notifique os usuários sobre o prazo de vencimento dos cartões e tarefas.
+- **Filtragem de tarefas por status:** Organize e visualize tarefas com base no seu status (pendente, concluído, etc.).
+- **Visualização de tarefas próximas:** Exibe tarefas com vencimento nos próximos 15 dias, facilitando o planejamento.
 
 # 🔎 Resumo de estruturação
 
